@@ -1,0 +1,12 @@
+#+title: Notes
+
+* VaS's paper
+** Critical balance and scaling of strongly stratified turbulence at low Prandtl number
+
+def: $Pr = \nu/\kappa$
+- Usually $Pr ~ O(1)$
+- But in stars, we have $Pr \ll 1$ because photons go very far compared to how quickly fluid moves.
+- Are we including MHD in simulations?
+- When $Pr ~ 1$ we have vertical length scales of $I_z ~ FrL$ where
+  - $I_z$ is vertical length scale
+  - $Fr = u/\sqrt{gL}$ is the ratio of speed to speed of gravity waves, dimensionless speed
