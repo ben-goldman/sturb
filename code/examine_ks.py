@@ -7,16 +7,21 @@ from math import sqrt
 import argparse
 
 f = h5py.File("NS2D_amplitude.h5")
+print(f["Amplitude"].keys())
 
-T = 0.1
-dt = 0.0001
+T = 1.0
+dt = 0.001
 n = T/dt
 
-Nk = 10
+
+Nk = len(f["Amplitude"].keys())
 
 
 def compute(k):
-    amp = np.array(f["Amplitude/" + str(k)])[1]
+    amps = np.array(f["Amplitude/" + str(k)])[1]
+    kx = np.abs(amps[:, 0]).argmax()
+    amp = amps[kx]
+    print(amp[0])
     x = np.linspace(0, T, len(amp))
     dx = x[1] - x[0]
     d2_dx2 = FinDiff(0, dx, 2)
@@ -25,11 +30,11 @@ def compute(k):
 
     sigma = d2a_dx2/amp
 
-    sigma = np.mean(sigma[:100])
+    sigma = np.sqrt(np.mean(sigma[:100]))
     return sigma
 
 
-ks = np.arange(1, Nk)
+ks = np.arange(1, Nk + 1)
 sigmas = np.ndarray(len(ks))
 
 for k in ks:

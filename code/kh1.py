@@ -50,23 +50,23 @@ def update(context):
         if solver.rank == 0:
             print(params.tstep, kk)
 
-    u0 = solver.get_velocity(**context)[0, 0, 16]
-    u1 = solver.get_velocity(**context)[1, 3, 16]
+    u0 = solver.get_velocity(**context)[0, :, 32]
+    u1 = solver.get_velocity(**context)[1, :, 32]
     amp[..., params.tstep - 1] = [u0, u1]
 
 
 if __name__ == "__main__":
     config.update(
             {
-                'nu': 1.0e-10,
-                'dt': 0.0001,
-                'T': 0.1,
+                'nu': 1.0e-20,
+                'dt': 0.001,
+                'T': 1.0,
                 'A': 0.01,
                 'delta': 0.01,
                 'write_result': 100,
                 'plot_result': -1,
                 'compute_energy': 100,
-                'N': [64, 64],
+                'N': [128, 128],
                 'optimizer': 'cython',
                 'amplitude_name': 'NS2D_amplitude.h5',
                 }, 'doublyperiodic'
@@ -76,7 +76,7 @@ if __name__ == "__main__":
                         mesh='doublyperiodic')
     context = solver.get_context()
     initialize(**context)
-    amp = np.ndarray((2, ceil(config.params.T/config.params.dt)))
+    amp = np.ndarray((2, 8, ceil(config.params.T/config.params.dt)))
     solve(solver, context)
     f = h5py.File(config.params.amplitude_name, mode="a",
                   driver="mpio", comm=solver.comm)
