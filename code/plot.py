@@ -16,7 +16,7 @@ if args.dump:
     print(f.keys())
 else:
     this = np.array(f[args.var_path])
-    s = plt.contourf(this, levels=30)
+    s = plt.contourf(this, levels=60)
     plt.colorbar(s)
     plt.suptitle(args.filename + " " + args.var_path)
     plt.show()
