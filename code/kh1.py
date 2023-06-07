@@ -12,9 +12,8 @@ def rms(X):
 def initialize(X, U, U_hat, mask, T, K, K_over_K2, **context):
     params = config.params
     N = params.N
-    U[1] = params.A*np.sin(params.k*X[0])
-    U[0, :, :N[1]//2] = np.tanh((X[1][:, :N[1]//2]-0.5*np.pi)/params.delta)
-    U[0, :, N[1]//2:] = -np.tanh((X[1][:, N[1]//2:]-1.5*np.pi)/params.delta)
+    U[1] = params.A*np.sin(params.k*X[0])*np.exp(-((X[1] - np.pi)*params.k)**2)
+    U[0, :, :] = np.tanh((X[1][:, :] - np.pi)/params.delta)
 
     U_hat = U.forward(U_hat)
 
@@ -50,9 +49,9 @@ def update(context):
         if solver.rank == 0:
             print(params.tstep, kk)
 
-    u0 = solver.get_velocity(**context)[0, :, 32]
-    u1 = solver.get_velocity(**context)[1, :, 32]
-    amp[..., params.tstep - 1] = [u0, u1]
+    u = solver.get_velocity(**context)[:, :, N[1]//2].copy()
+    u_std = solver.comm.allreduce(np.std(u, axis=1)) * np.sqrt(2)
+    amp[..., params.tstep - 1] = u_std
 
 
 if __name__ == "__main__":
@@ -60,13 +59,13 @@ if __name__ == "__main__":
             {
                 'nu': 1.0e-20,
                 'dt': 0.001,
-                'T': 1.0,
-                'A': 0.01,
+                'T': 0.5,
+                'A': 0.001,
                 'delta': 0.01,
                 'write_result': 100,
                 'plot_result': -1,
                 'compute_energy': 100,
-                'N': [128, 128],
+                'N': [512, 512],
                 'optimizer': 'cython',
                 'amplitude_name': 'NS2D_amplitude.h5',
                 }, 'doublyperiodic'
@@ -76,7 +75,7 @@ if __name__ == "__main__":
                         mesh='doublyperiodic')
     context = solver.get_context()
     initialize(**context)
-    amp = np.ndarray((2, 8, ceil(config.params.T/config.params.dt)))
+    amp = np.ndarray((2, ceil(config.params.T/config.params.dt)))
     solve(solver, context)
     f = h5py.File(config.params.amplitude_name, mode="a",
                   driver="mpio", comm=solver.comm)
