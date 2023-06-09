@@ -9,45 +9,41 @@ from scipy.optimize import curve_fit
 parser = argparse.ArgumentParser(prog='plotter')
 parser.add_argument('wavenumber')
 parser.add_argument("-c", "--cutoff", default=0)
-
-fit = False
-
 args = parser.parse_args()
 
 k = int(args.wavenumber)
-cutoff = int(args.cutoff)
 
 f = h5py.File("NS2D_amplitude.h5")
 
-T = 0.5
-dt = 0.0001
-n = T/dt
+T = 0.5 * 2*np.pi
+dt = 0.005
+
+t0, tf = 0.25, 3.1
+t0i = int(t0/dt)
+tfi = int(tf/dt)
+
+print(t0, tf)
+
 
 amp = np.array(f["Amplitude/" + str(k)])[1]
+print(amp.shape)
 
-print(amp[0])
+amp = amp[t0i:tfi]
+x = np.linspace(t0, tf, len(amp))
 
-if cutoff:
-    frac = cutoff/n
-    T *= frac
-    amp = amp[:cutoff]
+lamp = np.log(amp)
 
-x = np.linspace(0, T, len(amp))
+d_dx = FinDiff(0, x[1]-x[0])
 
-dx = x[1] - x[0]
+dlamp = d_dx(lamp)
 
-d_dx = FinDiff(0, dx, 2)
-
-da_dx = d_dx(amp)
-sigma2 = da_dx/amp
-sigma = np.sqrt(sigma2)
-
-(a, b), _ = curve_fit(lambda t,a,b: a*np.exp(b*t),  x,  amp, p0 = [0.001, 3])
-print(a, b)
+a, b = np.polyfit(x[dlamp > dlamp[0]], lamp[dlamp > dlamp[0]], 1)
 
 # plt.plot(x, amp)
 # plt.plot(x, a*np.exp(b*x))
-plt.plot(sigma)
+plt.plot(x, lamp)
+plt.plot(x, dlamp)
+plt.plot(x, a*x + b)
+print(a, b)
 plt.show()
-print(np.mean(sigma2))
 
