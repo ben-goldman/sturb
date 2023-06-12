@@ -6,20 +6,16 @@ from scipy.optimize import curve_fit
 from math import sqrt
 import argparse
 
-T = 0.5
-dt = 0.0001
-n = T/dt
-
 
 f = h5py.File("NS2D_amplitude.h5")
 print(f["Amplitude"].keys())
 Nk = len(f["Amplitude"].keys())
 
-def compute(k, T, f):
+def compute(k, f):
     f = h5py.File("NS2D_amplitude.h5")
-    T = 0.25 * 2*np.pi
+    T = 0.5 * 2*np.pi
     dt = 0.005
-    t0, tf = 0.45, 3.1
+    t0, tf = 0.25, np.pi
     t0i = int(t0/dt)
     tfi = int(tf/dt)
     amp = np.array(f["Amplitude/" + str(k)])[1]
@@ -28,6 +24,8 @@ def compute(k, T, f):
     lamp = np.log(amp)
     d_dx = FinDiff(0, x[1]-x[0])
     dlamp = d_dx(lamp)
+    print(k)
+    print(dlamp[dlamp > dlamp[0]])
     a, b = np.polyfit(x[dlamp > dlamp[0]], lamp[dlamp > dlamp[0]], 1)
     print(k, a, b)
     return a
@@ -36,7 +34,7 @@ ks = np.arange(1, Nk + 1)
 sigmas = np.ndarray((len(ks)))
 
 for k in ks:
-    sigmas[k-1] = compute(k, T, f)
+    sigmas[k-1] = compute(k, f)
 
 a, b = np.polyfit(ks, sigmas, 1)
 print()

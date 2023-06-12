@@ -18,7 +18,7 @@ f = h5py.File("NS2D_amplitude.h5")
 T = 0.5 * 2*np.pi
 dt = 0.005
 
-t0, tf = 0.25, 3.1
+t0, tf = 0.0, np.pi
 t0i = int(t0/dt)
 tfi = int(tf/dt)
 
@@ -37,12 +37,20 @@ d_dx = FinDiff(0, x[1]-x[0])
 
 dlamp = d_dx(lamp)
 
-a, b = np.polyfit(x[dlamp > dlamp[0]], lamp[dlamp > dlamp[0]], 1)
+# mask = np.logical_and(0.5*k < dlamp, dlamp < 2*k)
+begin = np.argmax(dlamp > 0.5*k)
+end = np.argmax(dlamp > 2*k)
+# begin = 0
+# end = 1000
+print(begin, end)
+
+a, b = np.polyfit(x[begin:end], lamp[begin:end], 1)
 
 # plt.plot(x, amp)
 # plt.plot(x, a*np.exp(b*x))
-plt.plot(x, lamp)
-plt.plot(x, dlamp)
+# plt.plot(x[dlamp > dlamp[0]], lamp[dlamp > dlamp[0]])
+plt.plot(x[begin:end], lamp[begin:end])
+plt.plot(x[begin:end], dlamp[begin:end])
 plt.plot(x, a*x + b)
 print(a, b)
 plt.show()
