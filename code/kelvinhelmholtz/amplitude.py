@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from findiff import FinDiff
 from math import sqrt
 import argparse
-from scipy.optimize import curve_fit
+from scipy.stats import linregress
 
 parser = argparse.ArgumentParser(prog='plotter')
 parser.add_argument('wavenumber')
@@ -39,17 +39,19 @@ dlamp = d_dx(lamp)
 
 # mask = np.logical_and(0.5*k < dlamp, dlamp < 2*k)
 begin = np.argmax(dlamp > 0.5*k)
-end = np.argmax(dlamp > 2*k)
+print(dlamp > 0.5*k)
+end = np.argmax(np.logical_not(dlamp[begin:] > 0.5*k))
+print(np.logical_not(dlamp[begin:] > 0.5*k))
 # begin = 0
 # end = 1000
 print(begin, end)
 
-a, b = np.polyfit(x[begin:end], lamp[begin:end], 1)
+a, b, r, _, _ = linregress(x[begin:end], lamp[begin:end])
 
 # plt.plot(x, amp)
 # plt.plot(x, a*np.exp(b*x))
 # plt.plot(x[dlamp > dlamp[0]], lamp[dlamp > dlamp[0]])
-plt.plot(x[begin:end], lamp[begin:end])
+plt.plot(x, lamp)
 plt.plot(x[begin:end], dlamp[begin:end])
 plt.plot(x, a*x + b)
 print(a, b)
