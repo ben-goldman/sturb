@@ -1,0 +1,161 @@
+\begin{thebibliography}{}
+
+\bibitem[{Andrew Dotson}, 2019]{andrewdotson2019}
+{Andrew Dotson} (2019).
+\newblock Tensor {{Calculus For Physics Ep}}. 11 | {{The Covariant
+  Derivative}}.
+
+\bibitem[Brethouwer et~al., 2007]{brethouwer2007}
+Brethouwer, G., Billant, P., Lindborg, E., and Chomaz, J.-M. (2007).
+\newblock Scaling analysis and simulation of strongly stratified turbulent
+  flows.
+\newblock {\em Journal of Fluid Mechanics}, 585:343--368.
+
+\bibitem[Burns et~al., 2020]{burns2020}
+Burns, K.~J., Vasil, G.~M., Oishi, J.~S., Lecoanet, D., and Brown, B.~P.
+  (2020).
+\newblock Dedalus: {{A}} flexible framework for numerical simulations with
+  spectral methods.
+\newblock {\em Physical Review Research}, 2(2):023068.
+
+\bibitem[Drazin, 1970]{drazin1970}
+Drazin, P.~G. (1970).
+\newblock Kelvin\textendash{{Helmholtz}} instability of finite amplitude.
+\newblock {\em Journal of Fluid Mechanics}, 42(2):321--335.
+
+\bibitem[El~Hattay and Lili, 2007]{elhattay2007}
+El~Hattay, M. and Lili, T. (2007).
+\newblock {Analyse lin\'eaire d'une turbulence homog\`ene cisaill\'ee
+  stablement stratifi\'ee}.
+\newblock {\em Comptes Rendus M\'ecanique}, 335(7):414--417.
+
+\bibitem[Galperin et~al., 2007]{galperin2007}
+Galperin, B., Sukoriansky, S., and Anderson, P.~S. (2007).
+\newblock On the critical {{Richardson}} number in stably stratified
+  turbulence.
+\newblock {\em Atmospheric Science Letters}, 8(3):65--69.
+
+\bibitem[Helmholtz, 1867]{helmholtz1867}
+Helmholtz, H. (1867).
+\newblock {{LXIII}}. {{On Integrals}} of the hydrodynamical equations, which
+  express vortex-motion.
+\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
+  Journal of Science}, 33(226):485--512.
+
+\bibitem[Herbert et~al., 2014]{herbert2014}
+Herbert, C., Pouquet, A., and Marino, R. (2014).
+\newblock Restricted equilibrium and the energy cascade in rotating and
+  stratified flows.
+\newblock {\em Journal of Fluid Mechanics}, 758:374--406.
+
+\bibitem[Kaneda et~al., 2003]{kaneda2003}
+Kaneda, Y., Ishihara, T., Yokokawa, M., Itakura, K., and Uno, A. (2003).
+\newblock Energy dissipation rate and energy spectrum in high resolution direct
+  numerical simulations of turbulence in a periodic box.
+\newblock {\em Physics of Fluids}, 15(2):L21--L24.
+
+\bibitem[Kundu et~al., 2004]{kundu2004}
+Kundu, P.~K., Cohen, I.~M., and Hu, H.~H. (2004).
+\newblock {\em Fluid Mechanics}.
+\newblock {Elsevier Academic Press}, {Amsterdam ; Boston}, 3rd ed edition.
+
+\bibitem[Lamorgese et~al., 2004a]{lamorgese2004}
+Lamorgese, A.~G., Caughey, D.~A., and Pope, S.~B. (2004a).
+\newblock Direct numerical simulation of homogeneous turbulence with
+  hyperviscosity.
+\newblock {\em Physics of Fluids}, 17(1):015106.
+
+\bibitem[Lamorgese et~al., 2004b]{lamorgese2004a}
+Lamorgese, A.~G., Caughey, D.~A., and Pope, S.~B. (2004b).
+\newblock Direct numerical simulation of homogeneous turbulence with
+  hyperviscosity.
+\newblock {\em Physics of Fluids}, 17(1):015106.
+
+\bibitem[Le~Bars and Lecoanet, 2020]{lebars2020a}
+Le~Bars, M. and Lecoanet, D., editors (2020).
+\newblock {\em Fluid {{Mechanics}} of {{Planets}} and {{Stars}}}, volume 595 of
+  {\em {{CISM International Centre}} for {{Mechanical Sciences}}}.
+\newblock {Springer International Publishing}, {Cham}.
+
+\bibitem[Legaspi and Waite, 2020]{legaspi2020}
+Legaspi, J.~D. and Waite, M.~L. (2020).
+\newblock Prandtl number dependence of stratified turbulence.
+\newblock {\em Journal of Fluid Mechanics}, 903:A12.
+
+\bibitem[Martin, 2010]{martin2010}
+Martin, H. (2010).
+\newblock A2 {{Dimensionless Numbers}}.
+\newblock In {\em {{VDI Heat Atlas}}}, {{VDI-Buch}}, pages 11--14. {Springer},
+  {Berlin, Heidelberg}.
+
+\bibitem[Meiron et~al., 1982]{meiron1982}
+Meiron, D.~I., Baker, G.~R., and Orszag, S.~A. (1982).
+\newblock Analytic structure of vortex sheet dynamics. {{Part}} 1.
+  {{Kelvin}}\textendash{{Helmholtz}} instability.
+\newblock {\em Journal of Fluid Mechanics}, 114:283--298.
+
+\bibitem[Mortensen and Langtangen, 2016]{mortensen2016}
+Mortensen, M. and Langtangen, H.~P. (2016).
+\newblock High performance {{Python}} for direct numerical simulations of
+  turbulent flows.
+\newblock {\em Computer Physics Communications}, 203:53--65.
+
+\bibitem[{Mostafa Momen}, 2021]{mostafamomen2021}
+{Mostafa Momen} (2021).
+\newblock Lecture 23, {{Part}} 1 - {{Kolmogorov}}'s {{Turbulence Theory}}
+  ({{K41}}) {{Energy Containing}} and {{Dissipation Ranges}}.
+
+\bibitem[Pham and Sarkar, 2010]{pham2010}
+Pham, H.~T. and Sarkar, S. (2010).
+\newblock Transport and mixing of density in a continuously stratified shear
+  layer.
+\newblock {\em Journal of Turbulence}, 11:N24.
+
+\bibitem[Prat and Ligni{\`e}res, 2013]{prat2013}
+Prat, V. and Ligni{\`e}res, F. (2013).
+\newblock Turbulent transport in radiative zones of stars.
+\newblock {\em Astronomy \& Astrophysics}, 551:L3.
+
+\bibitem[Remmler and Hickel, 2014]{remmler2014}
+Remmler, S. and Hickel, S. (2014).
+\newblock Spectral eddy viscosity of stratified turbulence.
+\newblock {\em Journal of Fluid Mechanics}, 755:R6.
+
+\bibitem[Riley and {deBruynKops}, 2003]{riley2003}
+Riley, J.~J. and {deBruynKops}, S.~M. (2003).
+\newblock Dynamics of turbulence strongly influenced by buoyancy.
+\newblock {\em Physics of Fluids}, 15(7):2047--2059.
+
+\bibitem[Rorai et~al., 2014]{rorai2014}
+Rorai, C., Mininni, P.~D., and Pouquet, A. (2014).
+\newblock Turbulence comes in bursts in stably stratified flows.
+\newblock {\em Physical Review E}, 89(4):043002.
+
+\bibitem[Sirca and Horvat, 2012]{sirca2012a}
+Sirca, S. and Horvat, M. (2012).
+\newblock {\em Computational {{Methods}} for {{Physicists}}}.
+\newblock Graduate {{Texts}} in {{Physics}}. {Springer}, {Berlin, Heidelberg}.
+
+\bibitem[Skoutnev, 2023]{skoutnev2023}
+Skoutnev, V.~A. (2023).
+\newblock Critical balance and scaling of strongly stratified turbulence at low
+  {{Prandtl}} number.
+\newblock {\em Journal of Fluid Mechanics}, 956:A7.
+
+\bibitem[Smith et~al., 2021]{smith2021}
+Smith, K.~M., Caulfield, C.~P., and Taylor, J.~R. (2021).
+\newblock Turbulence in forced stratified shear flows.
+\newblock {\em Journal of Fluid Mechanics}, 910:A42.
+
+\bibitem[Terry, 2018]{terry2018}
+Terry, P.~W. (2018).
+\newblock Theory of critical balance in plasma turbulence.
+\newblock {\em Physics of Plasmas}, 25(9):092301.
+
+\bibitem[Zahn and {Zinn-Justin}, 1993]{zahn1993}
+Zahn, J.-P. and {Zinn-Justin}, J., editors (1993).
+\newblock {\em Dynamique Des Fluides Astrophysiques =: {{Astrophysical}} Fluid
+  Dynamics}.
+\newblock {North-Holland}, {Amsterdam ; New York}.
+
+\end{thebibliography}
