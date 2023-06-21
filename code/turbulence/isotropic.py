@@ -95,7 +95,7 @@ def spectrum(solver, context):
     uiui *= (4./3.*np.pi)
 
     # Create bins for Ek
-    Nb = int(np.sqrt(sum((config.params.N/2)**2)/3))
+    Nb = 90 # int(np.sqrt(sum((config.params.N/2)**2)/3))
     bins = np.array(range(0, Nb))+0.5
     z = np.digitize(np.sqrt(context.K2), bins, right=True)
 
