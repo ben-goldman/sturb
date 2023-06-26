@@ -8,7 +8,7 @@ def initialize(UB_hat, UB, U, B, X, **context):
     params = config.params
     N = params.N
     print(N)
-    k = 2*np.pi*np.array([np.cos(params.theta_p), np.sin(params.theta_p), 0])
+    k = 2*np.pi*np.array([0, np.cos(params.theta_p), np.sin(params.theta_p)])
     vx = params.A*np.cos(np.tensordot(k, X, axes=1) + np.random.rand())
     vy = params.A*np.cos(np.tensordot(k, X, axes=1) + np.random.rand())
     Um = 0.5*(params.U1 - params.U2)
@@ -53,7 +53,7 @@ if __name__ == '__main__':
          'U2': -1,
          'theta_p': 0.005,
          'solver': "MHD",
-         'amplitude_name': "dynamo3.h5",
+         'amplitude_name': "dynamo4.h5",
          'optimization': 'cython',
          'convection': 'Divergence'})
 
