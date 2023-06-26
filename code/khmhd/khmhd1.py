@@ -32,7 +32,7 @@ def update(context):
     dx, L, N = params.dx, params.L, params.N
     UB = context.UB_hat.backward(context.UB)
     U, B = UB[:3], UB[3:]
-    B2 = solver.comm.allreduce(np.max(B[0]**2 + B[1]**2 + B[2]**2))
+    B2 = solver.comm.allreduce(np.mean(B[0]**2 + B[1]**2 + B[2]**2))
     amp[params.tstep - 1] = B2
     print(f"{str(params.tstep)} : {str(len(amp))}")
 
