@@ -5,8 +5,8 @@ tmin = min(ts)
 tmax = max(ts)
 u2min = 0
 b2min = (np.array(f[f"UB3/3D/{tmin}"])**2 + np.array(f[f"UB4/3D/{tmin}"])**2 + np.array(f[f"UB5/3D/{tmin}"])**2).min()
-u2max = 1.5
-b2max = (np.array(f[f"UB3/3D/{tmax}"])**2 + np.array(f[f"UB4/3D/{tmax}"])**2 + np.array(f[f"UB5/3D/{tmax}"])**2).max()
+u2max = 2.0
+b2max = (np.array(f[f"UB3/3D/{tmax}"])**2 + np.array(f[f"UB4/3D/{tmax}"])**2 + np.array(f[f"UB5/3D/{tmax}"])**2).max()*2
 for t in ts:
     if int(t) % 10 == 0:
         fig, (ax1, ax2) = plt.subplots(ncols=2, sharey=True, figsize=(10, 6))
