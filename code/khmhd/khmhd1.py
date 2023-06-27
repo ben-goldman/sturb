@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     solver = get_solver(update=update)
     context = solver.get_context()
-    context.hdf5file.filename = "../../../out/MHD_1.h5"
+    context.hdf5file.filename = "../../../out/MHD_1"
     initialize(**context)
     amp = np.ndarray((ceil(config.params.T/config.params.dt) + 1))
     solve(solver, context)
