@@ -11,8 +11,8 @@ for t in ts:
     fig, (ax1, ax2) = plt.subplots(ncols=2, sharey=True, figsize=(10, 6))
     u2 = np.array(f[f"UB0/3D/{t}"])**2 + np.array(f[f"UB1/3D/{t}"])**2 + np.array(f[f"UB2/3D/{t}"])**2
     b2 = np.array(f[f"UB3/3D/{t}"])**2 + np.array(f[f"UB4/3D/{t}"])**2 + np.array(f[f"UB5/3D/{t}"])**2
-    c1 = ax1.imshow(u2[:, :, 16], norm=colors.Normalize(vmin=u2min, vmax=u2max))
-    c2 = ax2.imshow(b2[:, :, 16], norm=colors.LogNorm(vmin=b2min, vmax=b2max))
+    c1 = ax1.imshow(u2[:, :, 128], norm=colors.Normalize(vmin=u2min, vmax=u2max))
+    c2 = ax2.imshow(b2[:, :, 128], norm=colors.LogNorm(vmin=b2min, vmax=b2max))
     print(b2.min(), b2.max())
     fig.colorbar(c1, ax=ax1, location="bottom")
     fig.colorbar(c2, ax=ax2, location="bottom")
