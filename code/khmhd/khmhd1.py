@@ -31,15 +31,16 @@ def update(context):
     solver = config.solver
     dx, L, N = params.dx, params.L, params.N
     UB = context.UB_hat.backward(context.UB)
-    B = UB[3:]
+    U, B = UB[:3], UB[3:]
     B2 = solver.comm.allreduce(np.mean(B[0]**2 + B[1]**2 + B[2]**2))
-    amp[params.tstep - 1] = B2
-    print(f"{str(params.tstep)} : {str(len(amp))}")
+    U2 = solver.comm.allreduce(np.mean(U[0]**2 + U[1]**2 + U[2]**2))
+    amp[params.tstep - 1] = [U2, B2]
+    print(f"{str(params.tstep)} : {str(amp.shape)}")
 
 
 if __name__ == '__main__':
     config.update(
-        {'nu': 0.0005,             # Viscosity
+        {'nu': 0.0001,             # Viscosity
          'dt': 0.01,                 # Time step
          'T': 50.0,                   # End time
          'eta': 0.0001,
@@ -47,7 +48,7 @@ if __name__ == '__main__':
          'L': [2*np.pi, 2*np.pi, 2*np.pi],
          'A': 0.01,
          'delta': 0.1,
-         'write_result': 10,
+         'write_result': 100,
          'B0': 0.001,
          'U1': 1,
          'U2': -1,
@@ -61,7 +62,7 @@ if __name__ == '__main__':
     context = solver.get_context()
     context.hdf5file.filename = "../../../out/MHD_1"
     initialize(**context)
-    amp = np.ndarray((ceil(config.params.T/config.params.dt) + 1))
+    amp = np.ndarray((2, ceil(config.params.T/config.params.dt) + 1))
     solve(solver, context)
     f = h5py.File(config.params.amplitude_name, mode="a",
                   driver="mpio", comm=solver.comm)
