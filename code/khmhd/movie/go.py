@@ -6,7 +6,7 @@ tmax = 3500
 u2min = 0
 b2min = (np.array(f[f"UB3/3D/{tmin}"])**2 + np.array(f[f"UB4/3D/{tmin}"])**2 + np.array(f[f"UB5/3D/{tmin}"])**2).min()
 u2max = 2.0
-b2max = (np.array(f[f"UB3/3D/{tmax}"])**2 + np.array(f[f"UB4/3D/{tmax}"])**2 + np.array(f[f"UB5/3D/{tmax}"])**2).max()*2
+b2max = (np.array(f[f"UB3/3D/{tmax}"])**2 + np.array(f[f"UB4/3D/{tmax}"])**2 + np.array(f[f"UB5/3D/{tmax}"])**2).max()
 for t in ts:
     fig, (ax1, ax2) = plt.subplots(ncols=2, sharey=True, figsize=(10, 6))
     u2 = np.array(f[f"UB0/3D/{t}"])**2 + np.array(f[f"UB1/3D/{t}"])**2 + np.array(f[f"UB2/3D/{t}"])**2

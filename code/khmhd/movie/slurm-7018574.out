@@ -1,0 +1,21 @@
+Tue Jun 27 17:15:12 EDT 2023
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 12.3.0 (conda-forge gcc 12.3.0-0)
+  configuration: --prefix=/burg/home/bog2101/.conda/envs/spectralDNS --cc=/home/conda/feedstock_root/build_artifacts/ffmpeg_1687154882217/_build_env/bin/x86_64-conda-linux-gnu-cc --cxx=/home/conda/feedstock_root/build_artifacts/ffmpeg_1687154882217/_build_env/bin/x86_64-conda-linux-gnu-c++ --nm=/home/conda/feedstock_root/build_artifacts/ffmpeg_1687154882217/_build_env/bin/x86_64-conda-linux-gnu-nm --ar=/home/conda/feedstock_root/build_artifacts/ffmpeg_1687154882217/_build_env/bin/x86_64-conda-linux-gnu-ar --disable-doc --disable-openssl --enable-demuxer=dash --enable-hardcoded-tables --enable-libfreetype --enable-libfontconfig --enable-libopenh264 --enable-libdav1d --enable-gnutls --enable-libmp3lame --enable-libvpx --enable-libass --enable-pthreads --enable-vaapi --enable-gpl --enable-libx264 --enable-libx265 --enable-libaom --enable-libsvtav1 --enable-libxml2 --enable-pic --enable-shared --disable-static --enable-version3 --enable-zlib --enable-libopus --pkg-config=/home/conda/feedstock_root/build_artifacts/ffmpeg_1687154882217/_build_env/bin/pkg-config
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+[image2 @ 0x5555555d4d00] Could not open file : u2b2*.png
+[image2 @ 0x5555555d4d00] Could not find codec parameters for stream 0 (Video: png, none(pc)): unspecified size
+Consider increasing the value for the 'analyzeduration' (0) and 'probesize' (5000000) options
+Input #0, image2, from 'u2b2*.png':
+  Duration: 00:00:00.03, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, none(pc), 30 fps, 30 tbr, 30 tbn
+Output #0, mp4, to 'u2b2.mp4':
+[out#0/mp4 @ 0x5555555d9200] Output file does not contain any stream
+Tue Jun 27 17:15:12 EDT 2023

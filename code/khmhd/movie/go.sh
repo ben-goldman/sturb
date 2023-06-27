@@ -13,7 +13,7 @@ module load anaconda
 source /burg/home/bog2101/.bashrc
 conda activate spectralDNS
 date
-# python go.py
+python go.py
 ffmpeg -framerate 30 -pattern_type glob -i 'u2b2*.png' -c:v libx264 -pix_fmt yuv420p u2b2.mp4
 date
 
