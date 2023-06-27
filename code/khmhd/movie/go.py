@@ -2,7 +2,7 @@ import numpy as np, matplotlib.pyplot as plt, h5py, matplotlib.colors as colors,
 f = h5py.File("../../../../out/MHD_1_w.h5")
 ts = f["UB1/3D"].keys()
 tmin = min(ts)
-tmax = max(ts)
+tmax = 3500
 u2min = 0
 b2min = (np.array(f[f"UB3/3D/{tmin}"])**2 + np.array(f[f"UB4/3D/{tmin}"])**2 + np.array(f[f"UB5/3D/{tmin}"])**2).min()
 u2max = 2.0
