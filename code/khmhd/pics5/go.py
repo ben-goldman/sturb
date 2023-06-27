@@ -5,7 +5,7 @@ tmin = min(ts)
 tmax = max(ts)
 u2min = 0
 b2min = (np.array(f[f"UB3/3D/{tmin}"])**2 + np.array(f[f"UB4/3D/{tmin}"])**2 + np.array(f[f"UB5/3D/{tmin}"])**2).min()
-u2max = 1
+u2max = 1.25
 b2max = (np.array(f[f"UB3/3D/{tmax}"])**2 + np.array(f[f"UB4/3D/{tmax}"])**2 + np.array(f[f"UB5/3D/{tmax}"])**2).max()
 for t in ts:
     if int(t) % 10 == 0:
