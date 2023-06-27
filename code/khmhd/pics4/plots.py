@@ -1,5 +1,5 @@
 import numpy as np, matplotlib.pyplot as plt, h5py
-f = h5py.File("MHD_w.h5")
+f = h5py.File("../MHD_w.h5")
 for t in range(1, 50):
     t = str(t*100)
     B2 = np.array(f[f"UB3/3D/{t}"])**2 + np.array(f[f"UB4/3D/{t}"])**2 + np.array(f[f"UB5/3D/{t}"])**2
