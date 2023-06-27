@@ -34,7 +34,7 @@ def update(context):
     U, B = UB[:3], UB[3:]
     B2 = solver.comm.allreduce(np.mean(B[0]**2 + B[1]**2 + B[2]**2))
     U2 = solver.comm.allreduce(np.mean(U[0]**2 + U[1]**2 + U[2]**2))
-    amp[params.tstep - 1] = [U2, B2]
+    amp[:, params.tstep - 1] = [U2, B2]
     print(f"{str(params.tstep)} : {str(amp.shape)}")
 
 
@@ -66,5 +66,5 @@ if __name__ == '__main__':
     solve(solver, context)
     f = h5py.File(config.params.amplitude_name, mode="a",
                   driver="mpio", comm=solver.comm)
-    f.create_dataset("B2", data=amp)
+    f.create_dataset("amp", data=amp)
     f.close()
