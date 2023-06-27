@@ -48,19 +48,19 @@ if __name__ == '__main__':
          'L': [2*np.pi, 2*np.pi, 2*np.pi],
          'A': 0.01,
          'delta': 0.1,
-         'write_result': 100,
+         'write_result': 10,
          'B0': 0.001,
          'U1': 1,
          'U2': -1,
          'theta_p': 0.005,
          'solver': "MHD",
-         'amplitude_name': "../../../out/dynamo.h5",
+         'amplitude_name': "../../../out/dynamo2.h5",
          'optimization': 'cython',
          'convection': 'Divergence'})
 
     solver = get_solver(update=update)
     context = solver.get_context()
-    context.hdf5file.filename = "../../../out/MHD_1"
+    context.hdf5file.filename = "../../../out/MHD_2"
     initialize(**context)
     amp = np.ndarray((2, ceil(config.params.T/config.params.dt) + 1))
     solve(solver, context)
