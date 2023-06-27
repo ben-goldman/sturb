@@ -31,7 +31,7 @@ def update(context):
     solver = config.solver
     dx, L, N = params.dx, params.L, params.N
     UB = context.UB_hat.backward(context.UB)
-    U, B = UB[:3], UB[3:]
+    B = UB[3:]
     B2 = solver.comm.allreduce(np.mean(B[0]**2 + B[1]**2 + B[2]**2))
     amp[params.tstep - 1] = B2
     print(f"{str(params.tstep)} : {str(len(amp))}")
@@ -47,18 +47,19 @@ if __name__ == '__main__':
          'L': [2*np.pi, 2*np.pi, 2*np.pi],
          'A': 0.01,
          'delta': 0.1,
-         'write_result': 100,
+         'write_result': 10,
          'B0': 0.001,
          'U1': 1,
          'U2': -1,
          'theta_p': 0.005,
          'solver': "MHD",
-         'amplitude_name': "dynamo4.h5",
+         'amplitude_name': "../../../out/dynamo.h5",
          'optimization': 'cython',
          'convection': 'Divergence'})
 
     solver = get_solver(update=update)
     context = solver.get_context()
+    context.hdf5file.filename = "../../../out/MHD_1.h5"
     initialize(**context)
     amp = np.ndarray((ceil(config.params.T/config.params.dt) + 1))
     solve(solver, context)
