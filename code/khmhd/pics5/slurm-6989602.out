@@ -1,0 +1,7 @@
+Tue Jun 27 14:26:36 EDT 2023
+Traceback (most recent call last):
+  File "/burg/thea/users/bog2101/sturb/code/khmhd/pics5/plots.py", line 8, in <module>
+    c1 = ax.imshow(np.log(u2[:, :, 64]))
+         ^^
+NameError: name 'ax' is not defined. Did you mean: 'ax1'?
+Tue Jun 27 14:26:47 EDT 2023
