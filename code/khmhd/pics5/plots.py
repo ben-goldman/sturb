@@ -7,8 +7,8 @@ for t in range(1, 50):
     b2 = np.array(f[f"UB3/3D/{t}"])**2 + np.array(f[f"UB4/3D/{t}"])**2 + np.array(f[f"UB5/3D/{t}"])**2
     c1 = ax1.imshow(np.log(u2[:, :, 64]))
     c2 = ax2.imshow(np.log(b2[:, :, 64]))
-    fig.colorbar(c1, cax=ax1, location="bottom")
-    fig.colorbar(c2, cax=ax2, location="bottom")
+    fig.colorbar(c1, ax=ax1, location="bottom")
+    fig.colorbar(c2, ax=ax2, location="bottom")
     ax1.set_title(r"$\vec{u}^2$")
     ax2.set_title(r"$\vec{b}^2$")
     fig.suptitle(f"$t={t}$")
