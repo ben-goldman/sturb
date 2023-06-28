@@ -40,10 +40,10 @@ def update(context):
 
 if __name__ == '__main__':
     config.update(
-        {'nu': 0.0001,             # Viscosity
+        {'nu': 0.001,             # Viscosity
          'dt': 0.01,                 # Time step
          'T': 50.0,                   # End time
-         'eta': 0.0001,
+         'eta': 0.001,
          'M': [8, 8, 8],
          'L': [2*np.pi, 2*np.pi, 2*np.pi],
          'A': 0.01,
@@ -54,13 +54,13 @@ if __name__ == '__main__':
          'U2': -1,
          'theta_p': 0.005,
          'solver': "MHD",
-         'amplitude_name': "../../../out/dynamo2.h5",
+         'amplitude_name': "../../../out/dynamo3.h5",
          'optimization': 'cython',
          'convection': 'Divergence'})
 
     solver = get_solver(update=update)
     context = solver.get_context()
-    context.hdf5file.filename = "../../../out/MHD_2"
+    context.hdf5file.filename = "../../../out/MHD_3"
     initialize(**context)
     amp = np.ndarray((2, ceil(config.params.T/config.params.dt) + 1))
     solve(solver, context)
