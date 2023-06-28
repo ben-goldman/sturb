@@ -1,5 +1,5 @@
 import numpy as np, matplotlib.pyplot as plt, h5py, matplotlib.colors as colors, matplotlib as mpl
-f = h5py.File("../../../../out/MHD_2_w.h5")
+f = h5py.File("../../../../out/MHD_3_w.h5")
 ts = f["UB1/3D"].keys()
 tmin = min(ts)
 tmax = 3500
