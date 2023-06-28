@@ -161,3 +161,4 @@ cython_debug/
 
 *.h5
 code/khmhd/movie/*.png
+code/khmhd/movie2/*.png
